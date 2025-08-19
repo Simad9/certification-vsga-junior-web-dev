@@ -1,5 +1,5 @@
 <footer class="bg-[#1E1E1E] px-[150px] py-[20px]">
-  <section class="flex gap-40 pb-5">
+  <section class="flex justify-center gap-40 pb-5">
     <div class="flex flex-col">
       <h1 class="mb-3 text-manrope text-2xl font-bold text-oren"><span class="text-biru">//</span> Contect</h1>
       <ul class="text-background1">
