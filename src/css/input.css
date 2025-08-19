@@ -1,1 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-background1: #fff9ed;
+  --color-text: #030000;
+  --color-blue: #00318b;
+  --color-oren: #fe9f39;
+  --color-abu: #fe9f39;
+
+  --font-sora: "Sora", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+}
