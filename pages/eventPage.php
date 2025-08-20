@@ -1,6 +1,7 @@
 <?php
 include '../php/session.php';
 include '../components/component.php';
+include '../php/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ include '../components/component.php';
   <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
 
     <!-- NAVBAR LOGIN / LOGOUT -->
-    <?= include '../components/navbar.php'; ?>
+    <?php include "../components/navbar.php" ?>
 
     <div class="flex justify-center items-center px-[120px] h-[200px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
       <div class="flex flex-col text-text text-center">
@@ -29,17 +30,25 @@ include '../components/component.php';
 
       <!-- Card -->
       <div class="flex gap-8 w-full">
-        <?= Card('../src/images/belajar.png', "Bootcamp Mahasiswa", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.") ?>
-        <?= Card(
-          '../src/images/gunung.png',
-          "Liburan Bersama",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore."
-        ) ?>
-        <?= Card(
-          '../src/images/kerja.png',
-          "Kerja Sama Tim",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore."
-        ) ?>
+        <?php
+        $query = "SELECT * FROM event";
+        $result = mysqli_query($koneksi, $query);
+        while ($data = mysqli_fetch_assoc($result)) :
+        ?>
+          <div class='flex flex-col w-[400px]'>
+            <img src='../src/uploads/<?= $data['image'] ?>' class='h-7/12 object-cover rounded-lg'>
+            <h1 class='mt-2 text-manrope text-text text-[24px] text-center'><?= $data['title'] ?></h1>
+            <p class='text-sore text-[18px] text-abu text-justify'><?= $data['desc'] ?></p>
+
+            <a href='../pages/eventDetail.php?id_event=<?= $data['id_event'] ?>'>
+              <div class='flex justify-center items-center gap-3  px-[20px] py-[10px] rounded-full bg-oren text-white w-full'>
+                <p class='text-manrope text-[14px] text-white'>Lihat Detail </p>
+              </div>
+            </a>
+          </div>
+        <?php
+        endwhile
+        ?>
       </div>
     </div>
 

@@ -1,13 +1,19 @@
 <?php
 function Card($gambar, $title, $paragraph)
 {
-  return "
-    <div class='flex flex-col w-full'>
-          <img src='$gambar' alt='' class='h-7/12 object-cover rounded-lg'>
-          <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>$title</h1>
-          <p class='text-sore text-[18px] text-abu text-justify'>$paragraph</p>
-        </div>
-  ";
+  return `
+    <div class='flex flex-col w-[400px]'>
+      <img src='$gambar'  class='h-7/12 object-cover rounded-lg'>
+      <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>$title</h1>
+      <p class='text-sore text-[18px] text-abu text-justify'>$paragraph</p>
+
+      <a href='../pages/eventDetail.php?id_event=1'>
+          <div class='flex justify-center items-center gap-3  px-[20px] py-[10px] rounded-full bg-oren text-white w-full'>
+            <p class='text-manrope text-[14px] text-white'>Lihat Detail </p>
+          </div>
+      </a>
+    </div>
+  `;
 }
 
 function Navbar($login)

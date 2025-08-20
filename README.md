@@ -13,7 +13,7 @@ Link Design = [Figma](https://www.figma.com/design/4qKszHszVFd9vBPDvLCyat/Sertif
 ---
 ### REVISI 
 - Revisi Pertama : 
-Navbar dropdown artikel
-Buat Dashborad untuk upload artikel / blogs
-Bikin artikel detail
+- [x] Navbar dropdown artikel
+- [x] Buat Dashborad untuk upload artikel / blogs
+- [x] Bikin artikel detail
 Responsive yang penting rapi aja (opsional)

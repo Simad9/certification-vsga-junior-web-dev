@@ -13,6 +13,9 @@ if (isset($_POST['submit'])) {
 
     header("Location: ../pages/admin.php");
     exit;
+  } else {
+    header("Location: ../pages/loginPage.php?error=1");
+    exit;
   }
 
   $query = "SELECT * FROM users WHERE username='$username'";

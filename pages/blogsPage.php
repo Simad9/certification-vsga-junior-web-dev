@@ -13,8 +13,8 @@ include '../components/component.php';
 <body>
   <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
 
-        <!-- NAVBAR LOGIN / LOGOUT -->
-    <?= include '../components/navbar.php'; ?>
+    <!-- NAVBAR LOGIN / LOGOUT -->
+    <?php include "../components/navbar.php" ?>
 
     <div class="flex justify-center items-center px-[120px] h-[200px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
       <div class="flex flex-col text-text text-center">
@@ -29,17 +29,38 @@ include '../components/component.php';
 
       <!-- Card -->
       <div class="flex gap-8 w-full">
-        <?= Card('../src/images/belajar.png', "Kurikulum Terbaik", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.") ?>
+        <div class='flex flex-col w-[400px]'>
+          <img src='../src/images/belajar.png' class='h-7/12 object-cover rounded-lg'>
+          <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>Kurikulum Terbaik</h1>
+          <p class='text-sore text-[18px] text-abu text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, perspiciatis natus. Inventore sit similique itaque odit! Voluptates commodi cupiditate inventore amet repellendus, ut officiis odio harum pariatur doloremque similique accusantium!</p>
+        </div>
+        <div class='flex flex-col w-[400px]'>
+          <img src='../src/images/belajar.png' class='h-7/12 object-cover rounded-lg'>
+          <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>Kurikulum Terbaik</h1>
+          <p class='text-sore text-[18px] text-abu text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, perspiciatis natus. Inventore sit similique itaque odit! Voluptates commodi cupiditate inventore amet repellendus, ut officiis odio harum pariatur doloremque similique accusantium!</p>
+        </div>
+        <div class='flex flex-col w-[400px]'>
+          <img src='../src/images/belajar.png' class='h-7/12 object-cover rounded-lg'>
+          <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>Kurikulum Terbaik</h1>
+          <p class='text-sore text-[18px] text-abu text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, perspiciatis natus. Inventore sit similique itaque odit! Voluptates commodi cupiditate inventore amet repellendus, ut officiis odio harum pariatur doloremque similique accusantium!</p>
+        </div>
+
+        <!-- <?= Card(
+                '../src/images/belajar.png',
+                "Kurikulum Terbaik",
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.",
+
+              ) ?>
         <?= Card(
           '../src/images/gunung.png',
           "Insipirasi di Gunung",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore."
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.",
         ) ?>
         <?= Card(
           '../src/images/kerja.png',
           "Fokus adalah Kunci",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore."
-        ) ?>
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.",
+        ) ?> -->
       </div>
     </div>
 

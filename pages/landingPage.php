@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../components/component.php';
 ?>
 <!DOCTYPE html>
@@ -11,9 +12,9 @@ include '../components/component.php';
 
 <body>
   <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
-
+    
     <!-- NAVBAR LOGIN / LOGOUT -->
-    <?= include '../components/navbar.php'; ?>
+    <?php include "../components/navbar.php" ?>
 
     <!-- HEADER -->
     <div class="flex justify-center items-center w-full px-[120px] h-[480px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
@@ -76,19 +77,19 @@ include '../components/component.php';
         </div>
         <!-- STAT -->
         <div class="flex justify-between">
-          <div>
+          <div class="flex flex-col justify-center items-center text-center">
             <h3 class="font-monrope text-[34px] text-bold text-oren">50+</h3>
             <p class="font-sora text-[18px] text-abu">Projects Clients</p>
           </div>
-          <div class="w-[1px] h-[50px] bg-oren"></div>
-          <div>
+          <div class="w-[1px] h-[50px] bg-oren mx-5"></div>
+          <div class="flex flex-col justify-center items-center text-center">
             <h3 class="font-monrope text-[34px] text-bold text-oren">100+</h3>
-            <p class="font-sora text-[18px] text-abu">>Happy Clients</p>
+            <p class="font-sora text-[18px] text-abu">Happy Clients</p>
           </div>
-          <div class="w-[1px] h-[50px] bg-oren"></div>
-          <div>
+          <div class="w-[1px] h-[50px] bg-oren mx-5"></div>
+          <div class="flex flex-col justify-center items-center text-center">
             <h3 class="font-monrope text-[34px] text-bold text-oren">99%</h3>
-            <p class="font-sora text-[18px] text-abu">>Clients Satisfied</p>
+            <p class="font-sora text-[18px] text-abu">Clients Satisfied</p>
           </div>
         </div>
       </div>
