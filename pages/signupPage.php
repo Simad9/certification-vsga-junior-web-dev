@@ -1,3 +1,13 @@
+<?php
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == 1) {
+    echo '<script>alert("Password tidak sama")</script>';
+  } else if ($_GET['error'] == 2) {
+    echo '<script>alert("Username sudah terdaftar")</script>';
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,16 +21,16 @@
     <!-- Kiri -->
     <div class="flex flex-col justify-center items-center w-1/2 h-[650px] bg-gradient-to-b from-[#fff] to-[#ffd9a6] p-10 rounded-2xl">
       <img src="../src/images/Logo.svg" alt="Logo" class="w-32 h-32">
-      <p class="text-center text-sora text-black text-sm">
+      <p class="text-center font-sora text-black text-lg">
         "Transforming Ideas Into Digital Experiences"
       </p>
     </div>
 
     <!-- Kanan -->
     <div class="flex flex-col justify-center items-center w-1/2 p-10">
-      <h1 class="text-manrope text-[36px] font-bold mb-5">Log In Page</h1>
+      <h1 class="font-manrope text-[36px] font-bold mb-5">Sign Up Page</h1>
 
-      <form action="../php/signin.php" method="post" class="flex flex-col gap-4 w-full">
+      <form action="../php/signup.php" method="post" class="flex flex-col gap-4 w-full">
 
         <input type="text" placeholder="Username"
           class="w-full border rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-orange-400" name="username" />
@@ -33,7 +43,7 @@
           class="w-full border rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-orange-400" name="re-password" />
 
         <button type="submit"
-          class="w-full bg-oren text-white font-medium py-2 rounded-full hover:bg-orange-500 transition">
+          class="w-full bg-oren text-white font-medium py-2 rounded-full hover:bg-orange-500 transition" name="submit">
           Sign In
         </button>
 

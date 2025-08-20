@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../php/session.php';
 include '../components/component.php';
 ?>
 <!DOCTYPE html>
@@ -12,18 +12,26 @@ include '../components/component.php';
 
 <body>
   <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
-    <?php include '../components/navbar.php'; ?>
+
+    <?php
+    if (isset($_SESSION['login'])) {
+      include '../components/navbar2.php';
+    } else {
+      include '../components/navbar.php';
+    }
+    ?>
+
 
     <!-- HEADER -->
     <div class="flex justify-center items-center px-[120px] h-[480px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
       <div class="flex flex-col text-text text-center gap-[20px]">
-        <h1 class="text-manrope text-[36px] font-bold">DigiNova Tech</h1>
-        <p class="text-sora text-black text-[24px]">"Transforming Ideas Into Digital Experiences"</p>
-        <p class="text-sora text-abu text-[18px]">Teknologi bukan sekadar kode, tapi sarana untuk tumbuh di era digital. Company profile ini menunjukkan siapa kami dan bagaimana kami siap menjadi mitra digital terpercaya Anda</p>
+        <h1 class="font-manrope text-[36px] font-bold">DigiNova Tech</h1>
+        <p class="font-sora text-black text-[24px]">"Transforming Ideas Into Digital Experiences"</p>
+        <p class="font-sora text-abu text-[18px]">Teknologi bukan sekadar kode, tapi sarana untuk tumbuh di era digital. Company profile ini menunjukkan siapa kami dan bagaimana kami siap menjadi mitra digital terpercaya Anda</p>
         <!-- BUTTON -->
         <a href="#">
           <div class="flex justify-center items-center gap-3 px-[20px] py-[10px] rounded-full bg-oren text-white w-full">
-            <p class="text-manrope text-[14px] text-white">Diskusi Sekarang </p>
+            <p class="font-manrope text-[14px] text-white">Diskusi Sekarang </p>
             <img src="../src/images/panah.png" alt="" class="size-[24px]">
           </div>
         </a>
@@ -46,28 +54,28 @@ include '../components/component.php';
     </div>
 
     <!-- PROFILE -->
-    <div class="flex justify-center items-center px-[180px] py-[50px] rounded-[35px] bg-gradient-to-t from-[#fff] to-[#ffd9a6] gap-5 w-full">
+    <div id="about" class="flex justify-center items-center px-[180px] py-[50px] rounded-[35px] bg-gradient-to-t from-[#fff] to-[#ffd9a6] gap-5 w-full">
       <div class="w-full">
         <img src="../src/images/Bento Layout.png" alt="" class="h-[641px] object-cover">
       </div>
       <div class="w-full flex flex-col gap-[20px]">
         <!-- PROFILE PT -->
         <div class="text-text">
-          <h2 class="text-oren text-manrope text-[18px]"><span class="text-biru">//</span> About the Company</h2>
-          <h1 class="text-manrope text-[34px] text-bold">DigiNova Tech</h1>
-          <p class="text-sora text-[16px]">
+          <h2 class="text-oren font-manrope text-[18px]"><span class="text-biru">//</span> About the Company</h2>
+          <h1 class="font-manrope text-[34px] text-bold">DigiNova Tech</h1>
+          <p class="font-sora text-[16px]">
             Didirikan pada tahun 2021, DigiNova Tech bergerak di bidang pengembangan web dan solusi digital. Kami membantu UMKM, startup, hingga organisasi modern untuk memiliki identitas digital yang kuat melalui website, aplikasi, dan layanan kreatif. Dengan tim muda yang penuh semangat, kami selalu berfokus pada inovasi, kualitas, dan kepuasan klien.
           </p>
         </div>
         <!-- VISI & MISI -->
         <div>
-          <h2 class="text-oren text-manrope text-[18px]"><span class="text-biru">//</span> About the Company</h2>
+          <h2 class="text-oren font-manrope text-[18px]"><span class="text-biru">//</span> About the Company</h2>
           <h1 class="text-text text-[24px]">VISI</h1>
-          <p class="text-sora text-[16px]">
+          <p class="font-sora text-[16px]">
             Menjadi perusahaan digital yang membantu ribuan bisnis tumbuh dan dikenal luas melalui teknologi.
           </p>
           <h1 class="text-text text-[24px]">MISI</h1>
-          <ul class="text-sora text-[16px]">
+          <ul class="font-sora text-[16px]">
             <li>• Menciptakan produk digital yang inovatif, fungsional, dan user-friendly.</li>
             <li>• Memberikan layanan yang transparan dan profesional.</li>
             <li>• Mendukung transformasi digital bagi bisnis skala kecil hingga besar.</li>
@@ -76,25 +84,25 @@ include '../components/component.php';
         <!-- STAT -->
         <div class="flex justify-between">
           <div>
-            <h3 class="text-monrope text-[34px] text-bold text-oren">50+</h3>
-            <p class="text-sora text-[18px] text-abu">Projects Clients</p>
+            <h3 class="font-monrope text-[34px] text-bold text-oren">50+</h3>
+            <p class="font-sora text-[18px] text-abu">Projects Clients</p>
           </div>
           <div class="w-[1px] h-[50px] bg-oren"></div>
           <div>
-            <h3 class="text-monrope text-[34px] text-bold text-oren">100+</h3>
-            <p class="text-sora text-[18px] text-abu">>Happy Clients</p>
+            <h3 class="font-monrope text-[34px] text-bold text-oren">100+</h3>
+            <p class="font-sora text-[18px] text-abu">>Happy Clients</p>
           </div>
           <div class="w-[1px] h-[50px] bg-oren"></div>
           <div>
-            <h3 class="text-monrope text-[34px] text-bold text-oren">99%</h3>
-            <p class="text-sora text-[18px] text-abu">>Clients Satisfied</p>
+            <h3 class="font-monrope text-[34px] text-bold text-oren">99%</h3>
+            <p class="font-sora text-[18px] text-abu">>Clients Satisfied</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- SERVICE -->
-    <div class="flex flex-col justify-center items-center gap-3">
+    <div id="service" class="flex flex-col justify-center items-center gap-3">
       <div class="flex flex-col justify-center items-center">
         <h1 class=" text-text text-[24px] text-semibold">Jasa Kami</h1>
         <p class="text-abu text-[18px]">Beberapa jasa yang bisa kamu pilih untuk produk yang akan kamu buat.</p>
@@ -133,14 +141,14 @@ include '../components/component.php';
   </main>
 
   <section class="flex bg-oren px-[150px] py-[30px] justify-between items-center">
-    <div class=" text-background1 text-monrope text-[36px] text-bold">
+    <div class=" text-background1 font-monrope text-[36px] text-bold">
       <h1>Waktunya untuk mencapai</h1>
       <h1>pertumubhan berkelanjutan Anda.</h1>
     </div>
     <!-- BUTTON -->
     <a href="#">
       <div class="flex justify-center items-center gap-3 px-[20px] py-[10px] rounded-full bg-white text-oren w-full">
-        <p class="text-manrope text-[14px] text-oren text-semibold">Diskusi Sekarang </p>
+        <p class="font-manrope text-[14px] text-oren text-semibold">Diskusi Sekarang </p>
         <img src="../src/images/panah.png" alt="" class="size-[24px]">
       </div>
     </a>

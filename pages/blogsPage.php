@@ -1,4 +1,5 @@
 <?php
+include '../php/session.php';
 include '../components/component.php';
 ?>
 <!DOCTYPE html>
@@ -15,14 +16,14 @@ include '../components/component.php';
 
     <div class="flex justify-center items-center px-[120px] h-[200px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
       <div class="flex flex-col text-text text-center">
-        <h1 class="text-manrope text-[36px] font-bold">DigiNova Tech</h1>
-        <p class="text-sora text-black text-[24px]">"Transforming Ideas Into Digital Experiences"</p>
+        <h1 class="font-manrope text-[36px] font-bold">DigiNova Tech</h1>
+        <p class="font-sora text-black text-[24px]">"Transforming Ideas Into Digital Experiences"</p>
       </div>
     </div>
 
     <div>
-      <h1 class="text-manrope text-[24px] font-bold text-text text-center">Blogs from We</h1>
-      <p class="text-sore text-[18px] text-abu text-center mb-5">Beberapa tulisan yang dibuat oleh tim kami</p>
+      <h1 class="font-manrope text-[24px] font-bold text-text text-center">Blogs from We</h1>
+      <p class="font-sore text-[18px] text-abu text-center mb-5">Beberapa tulisan yang dibuat oleh tim kami</p>
 
       <!-- Card -->
       <div class="flex gap-8 w-full">

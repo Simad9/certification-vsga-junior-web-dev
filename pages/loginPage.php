@@ -1,9 +1,9 @@
-<?php 
-  if (isset($_GET['error'])) {
-    if ($_GET['error'] == 1) {
-      echo '<script>alert("something error")</script>';
-    }
+<?php
+if (isset($_GET['error'])) {
+  if ($_GET['error'] == 1) {
+    echo '<script>alert("something error")</script>';
   }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +18,14 @@
     <!-- Kiri -->
     <div class="flex flex-col justify-center items-center w-1/2 h-[650px] bg-gradient-to-b from-[#fff] to-[#ffd9a6] p-10 rounded-2xl">
       <img src="../src/images/Logo.svg" alt="Logo" class="w-32 h-32">
-      <p class="text-center text-sora text-black text-sm">
+      <p class="text-center font-sora text-black text-lg">
         "Transforming Ideas Into Digital Experiences"
       </p>
     </div>
 
     <!-- Kanan -->
     <div class="flex flex-col justify-center items-center w-1/2 p-10">
-      <h1 class="text-manrope text-[36px] font-bold mb-5">Log In Page</h1>
+      <h1 class="font-manrope text-[36px] font-bold mb-5">Log In Page</h1>
 
       <form action="../php/login.php" method="post" class="flex flex-col gap-4 w-full">
 

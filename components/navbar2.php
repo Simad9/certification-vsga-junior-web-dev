@@ -9,10 +9,10 @@
     <div class="flex gap-[50px] text-manrope text-[16px] text-text items-center">
       <a href="landingPage.php#about">About</a>
       <a href="landingPage.php#contact">Contact</a>
-      <a href="loginPage.php">
+      <a href="../php/logout.php">
         <div class="flex justify-center items-center gap-3  px-[20px] py-[10px] rounded-full bg-oren text-white w-full">
-          <p class="text-manrope text-[14px] text-white">Login </p>
-         <img src="../src/images/panah.png" alt="" class="size-[24px]">
+          <p class="text-manrope text-[14px] text-white">Logout </p>
+          <img src="../src/images/panah.png" alt="" class="size-[24px]">
         </div>
       </a>
     </div>
