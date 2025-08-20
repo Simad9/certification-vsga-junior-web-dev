@@ -7,12 +7,14 @@ include '../components/component.php';
 
 <head>
   <?php include '../components/head.php'; ?>
-  <title>Blogs Page</title>
+  <title>Event Page</title>
 </head>
 
 <body>
   <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
-    <?php include '../components/navbar.php'; ?>
+
+    <!-- NAVBAR LOGIN / LOGOUT -->
+    <?= include '../components/navbar.php'; ?>
 
     <div class="flex justify-center items-center px-[120px] h-[200px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
       <div class="flex flex-col text-text text-center">

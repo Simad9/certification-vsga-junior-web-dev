@@ -32,7 +32,7 @@ if (isset($_GET['error'])) {
         <input type="text" placeholder="Username"
           class="w-full border rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-orange-400" name="username" />
 
-        <input type="text" placeholder="Password"
+        <input type="password" placeholder="Password"
           class="w-full border rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-orange-400" name="password" />
 
         <button type="submit"

@@ -12,7 +12,9 @@ include '../components/component.php';
 
 <body>
   <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
-    <?php include '../components/navbar.php'; ?>
+
+        <!-- NAVBAR LOGIN / LOGOUT -->
+    <?= include '../components/navbar.php'; ?>
 
     <div class="flex justify-center items-center px-[120px] h-[200px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
       <div class="flex flex-col text-text text-center">
@@ -34,9 +36,10 @@ include '../components/component.php';
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore."
         ) ?>
         <?= Card(
-          '../src/images/kerja.png', 
-          "Fokus adalah Kunci", 
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.") ?>
+          '../src/images/kerja.png',
+          "Fokus adalah Kunci",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore."
+        ) ?>
       </div>
     </div>
 

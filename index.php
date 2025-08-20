@@ -9,7 +9,7 @@
 </head>
 
 <!-- Mengarah ke Login -->
-<body onload="window.location.href='pages/loginPage.php'">
+<body onload="window.location.href='pages/landingPage.php'">
 </body>
 
 </html>

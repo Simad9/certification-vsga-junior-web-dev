@@ -7,19 +7,29 @@ if (isset($_POST['submit'])) {
   $username = htmlspecialchars($_POST["username"]);
   $password = htmlspecialchars($_POST['password']);
 
+  if ($username == 'admin' && $password == '123') {
+    $_SESSION['username'] = $username;
+    $_SESSION['login'] = true;
+
+    header("Location: ../pages/admin.php");
+    exit;
+  }
+
   $query = "SELECT * FROM users WHERE username='$username'";
   $result = mysqli_query($koneksi, $query);
   $data = mysqli_fetch_assoc($result);
 
+
   if (mysqli_num_rows($result) > 0) {
     if (password_verify($password, $data['password'])) {
-      session_start();
+
       $_SESSION['username'] = $username;
       $_SESSION['login'] = true;
       header("Location: ../pages/landingPage.php");
       exit;
     }
+  } else {
+    header("Location: ../pages/loginPage.php?error=1");
+    exit;
   }
-  header("Location: ../pages/loginPage.php?error=1");
-  exit;
 }

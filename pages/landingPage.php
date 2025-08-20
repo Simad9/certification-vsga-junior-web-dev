@@ -1,5 +1,4 @@
 <?php
-include '../php/session.php';
 include '../components/component.php';
 ?>
 <!DOCTYPE html>
@@ -13,28 +12,22 @@ include '../components/component.php';
 <body>
   <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
 
-    <?php
-    if (isset($_SESSION['login'])) {
-      include '../components/navbar2.php';
-    } else {
-      include '../components/navbar.php';
-    }
-    ?>
-
+    <!-- NAVBAR LOGIN / LOGOUT -->
+    <?= include '../components/navbar.php'; ?>
 
     <!-- HEADER -->
-    <div class="flex justify-center items-center px-[120px] h-[480px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
-      <div class="flex flex-col text-text text-center gap-[20px]">
+    <div class="flex justify-center items-center w-full px-[120px] h-[480px] rounded-[35px] bg-gradient-to-b from-[#fff] to-[#ffd9a6]">
+      <div class="flex flex-col text-text text-center gap-[20px] w-3/4 justify-center items-center">
         <h1 class="font-manrope text-[36px] font-bold">DigiNova Tech</h1>
         <p class="font-sora text-black text-[24px]">"Transforming Ideas Into Digital Experiences"</p>
         <p class="font-sora text-abu text-[18px]">Teknologi bukan sekadar kode, tapi sarana untuk tumbuh di era digital. Company profile ini menunjukkan siapa kami dan bagaimana kami siap menjadi mitra digital terpercaya Anda</p>
         <!-- BUTTON -->
-        <a href="#">
-          <div class="flex justify-center items-center gap-3 px-[20px] py-[10px] rounded-full bg-oren text-white w-full">
+        <div class="flex w-[250px] justify-center items-center">
+          <a href="#" class="flex justify-center items-center gap-3 px-[20px] py-[10px] rounded-full bg-oren text-white w-full">
             <p class="font-manrope text-[14px] text-white">Diskusi Sekarang </p>
             <img src="../src/images/panah.png" alt="" class="size-[24px]">
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
 
