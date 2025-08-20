@@ -8,3 +8,7 @@ function Card($gambar, $title, $paragraph) {
         </div>
   ";
 }
+
+function Navbar(){
+  
+}

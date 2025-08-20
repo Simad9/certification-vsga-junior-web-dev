@@ -1,3 +1,10 @@
+<?php 
+  if (isset($_GET['error'])) {
+    if ($_GET['error'] == 1) {
+      echo '<script>alert("something error")</script>';
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +36,7 @@
           class="w-full border rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-orange-400" name="password" />
 
         <button type="submit"
-          class="w-full bg-oren text-white font-medium py-2 rounded-full hover:bg-orange-500 transition">
+          class="w-full bg-oren text-white font-medium py-2 rounded-full hover:bg-orange-500 transition" name="submit">
           Log In
         </button>
 
