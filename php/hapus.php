@@ -1,14 +1,14 @@
 <?php
 include "koneksi.php";
 
-$id = $_GET['id'];
+$id = $_GET['id_blog'];
 
-$query = "DELETE FROM users WHERE id='$id'";
+$query = "DELETE FROM blogs WHERE 1d='$id'";
 $result = mysqli_query($koneksi, $query);
 
 if (mysqli_affected_rows($koneksi) > 0) {
-  header('location:../pages/admin.php');
+  header('location:../pages/blogsPage.php');
 } else {
-  header('location:../pages/admin.php?error=1');
+  header('location:../pages/blogsPage.php?error=1');
 }
 

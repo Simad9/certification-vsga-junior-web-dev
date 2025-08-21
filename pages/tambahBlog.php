@@ -34,14 +34,14 @@ if (isset($_GET['error'])) {
     <!-- Button Lihat -->
     <div class="my-[20px]">
       <a href="eventPage.php" class="text-white bg-oren rounded-full px-[20px] py-[10px] text-center">Melihat Seluruh Event</a>
-      <a href="tambahBlog.php" class="text-white bg-oren rounded-full px-[20px] py-[10px] text-center">Tambah Blog</a>
+      <a href="admin.php" class="text-white bg-oren rounded-full px-[20px] py-[10px] text-center">Tambah Event</a>
       <a href="../php/logout.php" class="text-oren bg-white border-2 border-oren rounded-full px-[20px] py-[10px] text-center">Logout</a>
     </div>
 
     <!-- Form -->
     <section class="mt-[50px]">
-      <h2 class="text-text text-[24px] font-semibold mb-3">Upload Event Kita</h2>
-      <form action="../php/uploadFile.php" method="post" enctype="multipart/form-data">
+      <h2 class="text-text text-[24px] font-semibold mb-3">Tulis Blog Baru</h2>
+      <form action="../php/tambahBlog.php" method="post" enctype="multipart/form-data">
         <div class="flex flex-col gap-5">
           <label for="image" class="text-text text-[18px]">Gambar</label>
           <input type="file" name="foto" id="image" class="px-3 py-2 rounded-md border-2 border-gray-300" required accept=".png, .jpg, .jpeg">

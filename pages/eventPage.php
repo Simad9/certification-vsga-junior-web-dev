@@ -38,7 +38,9 @@ include '../php/koneksi.php';
           <div class='flex flex-col w-[400px]'>
             <img src='../src/uploads/<?= $data['image'] ?>' class='h-7/12 object-cover rounded-lg'>
             <h1 class='mt-2 text-manrope text-text text-[24px] text-center'><?= $data['title'] ?></h1>
-            <p class='text-sore text-[18px] text-abu text-justify'><?= $data['desc'] ?></p>
+            <p class='text-sore text-[18px] text-abu text-justify'>
+              <?= substr($data['desc'], 0, 200) . (strlen($data['desc']) > 200 ? "..." : "") ?>
+            </p>
 
             <a href='../pages/eventDetail.php?id_event=<?= $data['id_event'] ?>'>
               <div class='flex justify-center items-center gap-3  px-[20px] py-[10px] rounded-full bg-oren text-white w-full'>
@@ -51,8 +53,7 @@ include '../php/koneksi.php';
         ?>
       </div>
     </div>
-
-
+   
   </main>
 
 

@@ -1,6 +1,7 @@
 <?php
 include '../php/session.php';
 include '../components/component.php';
+include '../php/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,31 +30,46 @@ include '../components/component.php';
 
       <!-- Card -->
       <div class="flex gap-8 w-full">
-        <div class='flex flex-col w-[400px]'>
-          <img src='../src/images/belajar.png' class='h-7/12 object-cover rounded-lg'>
-          <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>Kurikulum Terbaik</h1>
-          <p class='text-sore text-[18px] text-abu text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, perspiciatis natus. Inventore sit similique itaque odit! Voluptates commodi cupiditate inventore amet repellendus, ut officiis odio harum pariatur doloremque similique accusantium!</p>
-        </div>
-        <div class='flex flex-col w-[400px]'>
-          <img src='../src/images/belajar.png' class='h-7/12 object-cover rounded-lg'>
-          <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>Kurikulum Terbaik</h1>
-          <p class='text-sore text-[18px] text-abu text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, perspiciatis natus. Inventore sit similique itaque odit! Voluptates commodi cupiditate inventore amet repellendus, ut officiis odio harum pariatur doloremque similique accusantium!</p>
-        </div>
-        <div class='flex flex-col w-[400px]'>
-          <img src='../src/images/belajar.png' class='h-7/12 object-cover rounded-lg'>
-          <h1 class='mt-2 text-manrope text-text text-[24px] text-center'>Kurikulum Terbaik</h1>
-          <p class='text-sore text-[18px] text-abu text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, perspiciatis natus. Inventore sit similique itaque odit! Voluptates commodi cupiditate inventore amet repellendus, ut officiis odio harum pariatur doloremque similique accusantium!</p>
-        </div>
+        <?php
+        $query = "SELECT * FROM blogs";
+        $result = mysqli_query($koneksi, $query);
+        while ($data = mysqli_fetch_assoc($result)) :
+        ?>
+          <div class='flex flex-col w-[400px]'>
+            <img src='../src/uploads/<?= $data['image'] ?>' class='h-7/12 object-cover rounded-lg'>
+            <h1 class='mt-2 text-manrope text-text text-[24px] text-center'><?= $data['title'] ?></h1>
+            <p class='text-sore text-[18px] text-abu text-justify'>
+              <?= substr($data['description'], 0, 200) . (strlen($data['description']) > 200 ? "..." : "") ?>
+            </p>
 
-        <!-- <?= Card(
-                '../src/images/belajar.png',
-                "Kurikulum Terbaik",
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.",
+            <a href='blogsDetail.php?id_blog=<?= $data['1d'] ?>'>
+              <div class='flex justify-center items-center gap-3  px-[20px] py-[10px] rounded-full bg-oren text-white w-full'>
+                <p class='text-manrope text-[14px] text-white'>Lihat Detail </p>
+              </div>
+            </a>
+            <?php if ($_SESSION['username'] == 'admin') : ?>
+              <a href='../php/hapus.php?id_blog=<?= $data['1d'] ?>' class="mt-1">
+                <div class='flex justify-center items-center gap-3  px-[20px] py-[10px] rounded-full bg-white border-2 text-oren border-oren hover:bg-oren hover:text-white transition w-full'>
+                  <p class='text-manrope text-[14px'>Hapus </p>
+                </div>
+              </a>
+            <?php endif; ?>
+          </div>
 
-              ) ?>
+        <?php
+        endwhile
+        ?>
+      </div>
+
+      <!-- <?= Card(
+              '../src/images/belajar.png',
+              "Kurikulum Terbaik",
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.",
+
+            ) ?>
         <?= Card(
           '../src/images/gunung.png',
-          "Insipirasi di Gunung",
+          "Fokus adalah Kunci",
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.",
         ) ?>
         <?= Card(
@@ -61,7 +77,7 @@ include '../components/component.php';
           "Fokus adalah Kunci",
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, officia? Quibusdam nisi, obcaecati porro consectetur exercitationem inventore! Fugit dignissimos, mollitia nobis amet eligendi libero ad sunt quo veniam! Tempora, inventore.",
         ) ?> -->
-      </div>
+    </div>
     </div>
 
 

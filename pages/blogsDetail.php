@@ -9,9 +9,9 @@ if (!isset($_SESSION['login'])) {
 }
 
 // Fetch
-$id = $_GET['id_event'];
+$id = $_GET['id_blog'];
 
-$query = "SELECT * FROM event WHERE id_event = '$id'";
+$query = "SELECT * FROM blogs WHERE 1d = '$id'";
 $result = mysqli_query($koneksi, $query);
 $data = mysqli_fetch_assoc($result);
 ?>
@@ -33,12 +33,12 @@ $data = mysqli_fetch_assoc($result);
     <?php
     if (isset($data)) :
     ?>
-     <!-- CARD -->
+      <!-- KLIEN -->
       <div class="flex flex-col justify-center items-center gap-3 w-full">
         <h1 class='mt-2 text-manrope text-text text-[24px] text-center text-bold mb-3'><?= $data['title'] ?></h1>
         <div class='flex flex-col w-full justify-center items-center'>
-          <img src='../src/uploads/<?= $data['image'] ?>' class='w-6/12 h-3/4 object-cover rounded-lg'>
-          <p class='text-sore text-[18px] text-abu text-justify mt-3'><?= $data['desc'] ?></p>
+          <img src='../src/images/<?= $data['image'] ?>' class='w-6/12 h-3/4 object-cover rounded-lg'>
+          <p class='text-sore text-[18px] text-abu text-justify mt-3'><?= $data['description'] ?></p>
         </div>
       </div>
     <?php
