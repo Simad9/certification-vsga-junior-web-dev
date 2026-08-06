@@ -7,53 +7,69 @@ if (!isset($_SESSION['login'])) {
   exit;
 }
 
-if (isset($_GET['error'])) {
-  if ($_GET['error'] == 1) {
-    echo '<script>alert("something error")</script>';
-  }
-}
+$error = isset($_GET['error']) && $_GET['error'] == 1;
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <?php include '../components/head.php'; ?>
-  <title>Dashboard Admin</title>
+  <title>Tambah Blog - DigiNova Tech</title>
 </head>
 
-<body>
-  <main class="px-[150px] pt-[20px] py-[50px] flex flex-col gap-3">
+<body class="bg-background1 font-sora text-text antialiased">
+  <main class="px-6 md:px-[120px] pt-[20px] pb-[60px] flex flex-col gap-8">
     <!-- NAVBAR LOGIN / LOGOUT -->
     <?php include "../components/navbar.php" ?>
 
-
-    <h1 class="text-text text-[36px] font-bold">Dashboard Admin</h1>
-    <p class="text-abu text-[18px]">Halaman ini hanya untuk admin.</p>
-
-    <!-- Button Lihat -->
-    <div class="my-[20px]">
-      <a href="eventPage.php" class="text-white bg-oren rounded-full px-[20px] py-[10px] text-center">Melihat Seluruh Event</a>
-      <a href="admin.php" class="text-white bg-oren rounded-full px-[20px] py-[10px] text-center">Tambah Event</a>
-      <a href="../php/logout.php" class="text-oren bg-white border-2 border-oren rounded-full px-[20px] py-[10px] text-center">Logout</a>
+    <!-- Header -->
+    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h1 class="font-manrope text-[30px] md:text-[36px] font-extrabold text-text">Tambah Blog</h1>
+        <p class="mt-1 font-sora text-[16px] text-abu">Tulis dan bagikan artikel terbaru tim kami.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="eventPage.php" class="rounded-full border-2 border-oren px-6 py-2.5 font-manrope text-[14px] font-semibold text-oren transition hover:bg-oren hover:text-white">Melihat Seluruh Event</a>
+        <a href="admin.php" class="rounded-full border-2 border-oren px-6 py-2.5 font-manrope text-[14px] font-semibold text-oren transition hover:bg-oren hover:text-white">Tambah Event</a>
+        <a href="../php/logout.php" class="rounded-full border-2 border-red-200 bg-white px-6 py-2.5 font-manrope text-[14px] font-semibold text-red-500 transition hover:border-red-500 hover:bg-red-500 hover:text-white">Logout</a>
+      </div>
     </div>
 
+    <?php if ($error) : ?>
+      <div class="rounded-xl bg-red-50 px-4 py-3 font-sora text-[13px] font-semibold text-red-600 ring-1 ring-red-200">Terjadi kesalahan, coba lagi.</div>
+    <?php endif; ?>
+
     <!-- Form -->
-    <section class="mt-[50px]">
-      <h2 class="text-text text-[24px] font-semibold mb-3">Tulis Blog Baru</h2>
-      <form action="../php/tambahBlog.php" method="post" enctype="multipart/form-data">
-        <div class="flex flex-col gap-5">
-          <label for="image" class="text-text text-[18px]">Gambar</label>
-          <input type="file" name="foto" id="image" class="px-3 py-2 rounded-md border-2 border-gray-300" required accept=".png, .jpg, .jpeg">
+    <section class="w-full max-w-[720px] rounded-[30px] bg-white p-8 shadow-sm ring-1 ring-black/5 md:p-10">
+      <h2 class="font-manrope text-[22px] font-bold text-text">Tulis Blog Baru</h2>
+      <p class="mt-1 font-sora text-[14px] text-abu">Lengkapi form berikut untuk mempublikasikan artikel.</p>
 
-          <label for="title" class="text-text text-[18px]">Title</label>
-          <input type="text" name="title" id="title" class="px-3 py-2 rounded-md border-2 border-gray-300" placeholder="Title" required>
-
-          <label for="deskripsi" class="text-text text-[18px]">Deskripsi</label>
-          <textarea name="deskripsi" id="deskripsi" class="px-3 py-2 rounded-md border-2 border-gray-300" placeholder="Deskripsi" required></textarea>
-
-          <button type="submit" name="submit" class="bg-oren text-white px-5 py-2 rounded-md">Upload</button>
+      <form action="../php/tambahBlog.php" method="post" enctype="multipart/form-data" class="mt-6 flex flex-col gap-5">
+        <div>
+          <label class="font-manrope text-[14px] font-semibold text-text">Gambar</label>
+          <label for="foto" class="mt-1.5 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-black/10 bg-background1/50 px-4 py-10 text-center transition hover:border-oren hover:bg-oren/5">
+            <span class="inline-flex size-12 items-center justify-center rounded-full bg-oren/15">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-oren" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+              </svg>
+            </span>
+            <span class="font-sora text-[14px] font-semibold text-text">Klik untuk memilih gambar</span>
+            <span class="font-sora text-[12px] text-abu">JPG, PNG, atau WEBP - maksimal 5MB</span>
+          </label>
+          <input type="file" name="foto" id="foto" class="hidden" required accept=".png, .jpg, .jpeg, .webp">
         </div>
+
+        <div>
+          <label for="title" class="font-manrope text-[14px] font-semibold text-text">Title</label>
+          <input type="text" name="title" id="title" placeholder="Judul artikel" required class="mt-1.5 w-full rounded-xl border border-black/10 bg-background1/50 px-4 py-3 font-sora text-[14px] outline-none transition focus:border-oren focus:bg-white focus:ring-2 focus:ring-oren/20">
+        </div>
+
+        <div>
+          <label for="deskripsi" class="font-manrope text-[14px] font-semibold text-text">Deskripsi</label>
+          <textarea name="deskripsi" id="deskripsi" rows="6" placeholder="Tulis isi artikel di sini..." required class="mt-1.5 w-full resize-none rounded-xl border border-black/10 bg-background1/50 px-4 py-3 font-sora text-[14px] outline-none transition focus:border-oren focus:bg-white focus:ring-2 focus:ring-oren/20"></textarea>
+        </div>
+
+        <button type="submit" name="submit" class="mt-2 w-full rounded-full bg-oren py-3.5 font-manrope text-[14px] font-semibold text-white transition hover:bg-orange-500 hover:shadow-lg hover:shadow-oren/30">Publish Blog</button>
       </form>
     </section>
   </main>

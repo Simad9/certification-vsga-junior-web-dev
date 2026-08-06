@@ -9,52 +9,52 @@ if (!isset($_SESSION['login'])) {
 }
 
 // Fetch
-$id = $_GET['id_event'];
-
+$id = $_GET['id_event'] ?? 0;
 $query = "SELECT * FROM event WHERE id_event = '$id'";
 $result = mysqli_query($koneksi, $query);
 $data = mysqli_fetch_assoc($result);
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <?php include '../components/head.php'; ?>
-  <title>Event Detail</title>
+  <title><?= $data ? $data['title'] . ' - DigiNova Tech' : 'Event - DigiNova Tech' ?></title>
 </head>
 
-<body>
-  <main class="px-[120px] pt-[20px] flex flex-col gap-[50px] pb-[20px]">
+<body class="bg-background1 font-sora text-text antialiased">
+  <main class="px-6 md:px-[120px] pt-[20px] pb-[60px] flex flex-col gap-8">
 
     <!-- NAVBAR LOGIN / LOGOUT -->
-     <?php include "../components/navbar.php" ?>
+    <?php include "../components/navbar.php" ?>
 
-    <?php
-    if (isset($data)) :
-    ?>
-     <!-- CARD -->
-      <div class="flex flex-col justify-center items-center gap-3 w-full">
-        <h1 class='mt-2 text-manrope text-text text-[24px] text-center text-bold mb-3'><?= $data['title'] ?></h1>
-        <div class='flex flex-col w-full justify-center items-center'>
-          <img src='../src/uploads/<?= $data['image'] ?>' class='w-6/12 h-3/4 object-cover rounded-lg'>
-          <p class='text-sore text-[18px] text-abu text-justify mt-3'><?= $data['desc'] ?></p>
+    <a href="eventPage.php" class="inline-flex items-center gap-1.5 font-sora text-[13px] text-abu transition hover:text-oren">&larr; Kembali ke Event</a>
+
+    <?php if ($data) : ?>
+      <!-- ISI EVENT -->
+      <article class="mx-auto w-full max-w-[860px] rounded-[30px] bg-white p-8 shadow-sm ring-1 ring-black/5 md:p-12">
+        <h1 class="font-manrope text-[28px] md:text-[34px] font-extrabold leading-snug text-text"><?= $data['title'] ?></h1>
+
+        <div class="mt-6 overflow-hidden rounded-2xl">
+          <img src="../src/uploads/<?= $data['image'] ?>" alt="<?= $data['title'] ?>" class="max-h-[420px] w-full object-cover">
         </div>
-      </div>
-    <?php
-    elseif (!isset($data)) :
-    ?>
-      <!-- KLIEN -->
-      <div class="flex flex-col justify-center items-center gap-3 w-full">
-        <h1 class='mt-2 text-manrope text-text text-[24px] text-center text-bold mb-3'>Tidak ada Data</h1>
 
+        <p class="mt-6 font-sora text-[16px] leading-8 text-abu text-justify"><?= nl2br(htmlspecialchars($data['desc'])) ?></p>
+
+        <a href="eventPage.php" class="mt-10 inline-flex items-center gap-2 rounded-full bg-background1 px-6 py-3 font-manrope text-[14px] font-semibold text-text ring-1 ring-black/5 transition hover:bg-oren hover:text-white">&larr; Event Lainnya</a>
+      </article>
+    <?php else : ?>
+      <!-- TIDAK ADA DATA -->
+      <div class="mx-auto flex w-full max-w-[600px] flex-col items-center gap-4 rounded-[30px] bg-white py-20 text-center shadow-sm ring-1 ring-black/5">
+        <h1 class="font-manrope text-[24px] font-bold text-text">Tidak ada Data</h1>
+        <p class="font-sora text-[14px] text-abu">Event yang kamu cari tidak ditemukan.</p>
+        <a href="eventPage.php" class="rounded-full bg-oren px-6 py-3 font-manrope text-[14px] font-semibold text-white transition hover:bg-orange-500">Lihat Semua Event</a>
       </div>
-    <?php
-    endif
-    ?>
+    <?php endif; ?>
 
   </main>
 
+  <?php include '../components/footer.php'; ?>
 </body>
 
 </html>
